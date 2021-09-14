@@ -8,6 +8,7 @@ appendHtmlForStartPage(struct dynamicText** contentForMain, int* noUrlMatchedFor
     "    <p><span class=\"bold\">Project goals</span>:</p>\n" \
     "    <ul class=\"list_settings\">\n" \
     "        <li>web development in <span class=\"bold\">compiled programming languages</span> like the C programming language</li>\n" \
+    "        <li>Public GitHub repository: <a rel=\"noopener noreferrer nofollow\" target=\"_blank\" href=\"https://github.com/Maatuuli/CompiledWebDevelopment\">https://github.com/Maatuuli/CompiledWebDevelopment</a></li>\n" \
     "        <li>basic set of functions for <span class=\"bold\">programming easily</span> a website</li>\n" \
     "        <li>usage of <span class=\"bold\">FastCGI or CGI</span> (<a rel=\"noopener noreferrer nofollow\" target=\"_blank\" href=\"https://fastcgi-archives.github.io/Understanding_FastCGI_Application_Performance_FastCGI.html\">link</a>)\n" \
     "            <ul>\n" \

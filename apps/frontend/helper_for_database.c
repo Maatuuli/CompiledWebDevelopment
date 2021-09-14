@@ -86,26 +86,26 @@ struct type_quote quotes[] = {
 char*
 getDatabaseServerName(void)
 {
-    return "sql447.your-server.de";
+    return "subdomain.your-domain.com";
 }
 
 
 char*
 getDatabaseUsername(void)
 {
-    return "maatuu_1";
+    return "your_username";
 }
 
 
 char*
 getDatabasePassword(void)
 {
-    return "Z1rkjv6b92kR9Bdq";
+    return "your_database_password";
 }
 
 char*
 getDatabaseName(void)
 {
-    return "cgi_database";
+    return "your_database_name";
 }
 
