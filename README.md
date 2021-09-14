@@ -10,8 +10,8 @@ Project goals:
 * web development in compiled programming languages like the C programming language
 * basic set of functions for programming easily a website
 * usage of FastCGI or CGI (link)
-** CGI and FastCGI are part of most web spaces for just $5 per month
-** execute your compiled web sites without the need to have an own web server
+# CGI and FastCGI are part of most web spaces for just $5 per month
+# execute your compiled web sites without the need to have an own web server
 *usage of tools and best practices for defensive programming in error-prone programming languages
 ** unit tests with good equivalence partitioning
 ** manual test cases with a spreadsheet document
