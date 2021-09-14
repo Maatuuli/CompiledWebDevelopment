@@ -12,6 +12,13 @@ getMinimumAmountOfBytesForAllocation(char* filename, int lineNumber)
 }
 
 
+int
+getMaximumAmountOfBytesForAllocation(char* filename, int lineNumber)
+{
+    return 5 * 1024 * 1024; // 5 MB
+}
+
+
 void
 freeDynamicText(struct dynamicText** element, char* filename, int lineNumber)
 {
@@ -144,6 +151,12 @@ appendDynamicText(struct dynamicText** element, char* text, char* filename, int 
         /* Increase amount of needed memory by an extra amount, to avoid byte by byte reallocations. */
         maxLengthForCopy += getMinimumAmountOfBytesForAllocation(filename, lineNumber);
 
+        /* We want to set up a maximum amount of allocated text. */
+        if (maxLengthForCopy > getMaximumAmountOfBytesForAllocation(filename, lineNumber))
+        {
+            maxLengthForCopy = getMaximumAmountOfBytesForAllocation(filename, lineNumber);
+        }
+        
         resizeDynamicText(element, maxLengthForCopy, filename, lineNumber);
     }
 
@@ -187,6 +200,12 @@ assignDynamicText(struct dynamicText** element, char* text, char* filename, int 
     {
         /* Increase amount of needed memory by an extra amount, to avoid byte by byte reallocations. */
         maxLengthForCopy += getMinimumAmountOfBytesForAllocation(filename, lineNumber);
+        
+        /* We want to set up a maximum amount of allocated text. */
+        if (maxLengthForCopy > getMaximumAmountOfBytesForAllocation(filename, lineNumber))
+        {
+            maxLengthForCopy = getMaximumAmountOfBytesForAllocation(filename, lineNumber);
+        }
         
         resizeDynamicText(element, maxLengthForCopy, filename, lineNumber);
     }
