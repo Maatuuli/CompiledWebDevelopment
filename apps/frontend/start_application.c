@@ -2,7 +2,7 @@
 void
 startApplication(struct timespec clockStart, char* currentRequestMethod, char* currentCookie, char* textForQueryString)
 {
-    char baseHref[] = "https://maatuu.li/minimal/";
+    char baseHref[] = "https://maatuu.li/CompiledWebDevelopment/";
     
     /* Init "get" data from server. */
     struct listForAssociativeDynamicText* listForGetParameters = newListForAssociativeDynamicText(__FILE__, __LINE__);

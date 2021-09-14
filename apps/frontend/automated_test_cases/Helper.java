@@ -97,6 +97,6 @@ public class Helper
     public static String
     getBaseUrlForAutomatedTests()
     {
-        return "https://maatuu.li/minimal/";
+        return "https://maatuu.li/CompiledWebDevelopment/";
     }
 }
