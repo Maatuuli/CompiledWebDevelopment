@@ -257,6 +257,7 @@ appendHtmlForProjectStatistics(struct dynamicText** contentForMain, int* noUrlMa
     "    <p><span class=\"bold\">Project statistics</span>:</p>\n" \
     "    <ul class=\"list_settings\">\n" \
     "        <li>programmed by Thomas Krüger</li>\n" \
+    "        <li>Public GitHub repository: <a rel=\"noopener noreferrer nofollow\" target=\"_blank\" href=\"https://github.com/Maatuuli/CompiledWebDevelopment\">https://github.com/Maatuuli/CompiledWebDevelopment</a></li>\n" \
     "        <li><span class=\"bold\">CGI</span> web project</li>\n" \
     "        <li>programmed in the <span class=\"bold\">C programming language</span></li>\n" \
     "        <li><span class=\"bold\">no external libraries</span>, only standard C library and MySQL library</li>\n" \
@@ -264,6 +265,7 @@ appendHtmlForProjectStatistics(struct dynamicText** contentForMain, int* noUrlMa
     "        <li>usage of check tools: CppCheck (<a rel=\"noopener noreferrer nofollow\" target=\"_blank\" href=\"http://cppcheck.sourceforge.net/\">link</a>), Splint (<a rel=\"noopener noreferrer nofollow\" target=\"_blank\" href=\"https://splint.org/\">link</a>), GNU Complexity (<a rel=\"noopener noreferrer nofollow\" target=\"_blank\" href=\"https://www.gnu.org/software/complexity/manual/complexity.html#complexity-scale\">link</a>)</li>\n" \
     "        <li><span class=\"bold\">project stucture for frontend website</span>:\n" \
     "            <ul>\n" \
+    "                <li>Public GitHub repository: <a rel=\"noopener noreferrer nofollow\" target=\"_blank\" href=\"https://github.com/Maatuuli/CompiledWebDevelopment/tree/main/apps/frontend\">https://github.com/Maatuuli/CompiledWebDevelopment/tree/main/apps/frontend</a></li>\n" \
     "                <li>Files for \"frontend\" application:\n" \
     "                    <ul>\n" \
     "                        <li>4x application .c files\n" \
@@ -289,7 +291,8 @@ appendHtmlForProjectStatistics(struct dynamicText** contentForMain, int* noUrlMa
     "                    <ul>\n" \
     "                        <li><span class=\"bold\">40x manual test cases</span>\n" \
     "                            <ul>\n" \
-    "                                <li>QA spreadsheet document (<a target=\"blank\" href=\"manual_test_cases.ods\">link to file</a>)\n" \
+    "                                <li>QA spreadsheet document</li>\n" \
+    "                                <li>Public GitHub repository: <a rel=\"noopener noreferrer nofollow\" target=\"_blank\" href=\"https://github.com/Maatuuli/CompiledWebDevelopment/tree/main/apps/frontend/manual_test_cases\">https://github.com/Maatuuli/CompiledWebDevelopment/tree/main/apps/frontend/manual_test_cases</a>\n" \
     "                                    <br />\n" \
     "                                    <br />\n" \
     "                                    <a target=\"blank\" href=\"manual_test_cases___2021-09-13.png\"><img src=\"manual_test_cases___2021-09-13.png\" width=\"700\" alt=\"Spreadsheet document with manual test cases for the frontend.\" /></a>\n" \
@@ -300,7 +303,8 @@ appendHtmlForProjectStatistics(struct dynamicText** contentForMain, int* noUrlMa
     "                            <ul>\n" \
     "                                <li>browser automation with <span class=\"bold\">Selenium</span> and Google Chrome</li>\n" \
     "                                <li>test runs showing for each automated test case every step for reproduce (<a target=\"blank\" href=\"frontend___automated_test_cases.txt\">link to file</a>)</li>\n" \
-    "                                <li>duration for complete test run: 11.1 seconds\n" \
+    "                                <li>duration for complete test run: 11.1 seconds</li>\n" \
+    "                                <li>Public GitHub repository: <a rel=\"noopener noreferrer nofollow\" target=\"_blank\" href=\"https://github.com/Maatuuli/CompiledWebDevelopment/tree/main/apps/frontend/automated_test_cases\">https://github.com/Maatuuli/CompiledWebDevelopment/tree/main/apps/frontend/automated_test_cases</a>\n" \
     "                                    <br />\n" \
     "                                    <br />\n" \
     "                                    <a target=\"blank\" href=\"frontend___automated_test_cases.txt\"><img src=\"frontend___automated_test_cases___2021-09-13.png\" width=\"700\" alt=\"Logging output of a complete test run from the automated browser tests with Selenium.\" /></a>\n" \
@@ -312,6 +316,7 @@ appendHtmlForProjectStatistics(struct dynamicText** contentForMain, int* noUrlMa
     "                                <li>written in plain C</li>\n" \
     "                                <li>checking all routing URLs from the frontend application</li>\n" \
     "                                <li>duration for a complete test run: 1.1 seconds</li>\n" \
+    "                                <li>Public GitHub repository: <a rel=\"noopener noreferrer nofollow\" target=\"_blank\" href=\"https://github.com/Maatuuli/CompiledWebDevelopment/tree/main/apps/frontend/unit_tests\">https://github.com/Maatuuli/CompiledWebDevelopment/tree/main/apps/frontend/unit_tests</a></li>\n" \
     "                            </ul>\n" \
     "                        </li>\n" \
     "                    </ul>\n" \
@@ -349,6 +354,7 @@ appendHtmlForProjectStatistics(struct dynamicText** contentForMain, int* noUrlMa
     "        </li>\n" \
     "        <li style=\"margin-top: 30px;\"><span class=\"bold\">project stucture for core files for C web development</span>:\n" \
     "            <ul>\n" \
+    "                <li>Public GitHub repository: <a rel=\"noopener noreferrer nofollow\" target=\"_blank\" href=\"https://github.com/Maatuuli/CompiledWebDevelopment/tree/main/core\">https://github.com/Maatuuli/CompiledWebDevelopment/tree/main/core</a></li>\n" \
     "                <li>Files for \"core\":\n" \
     "                    <ul>\n" \
     "                        <li>9x core .c files\n" \
@@ -369,7 +375,8 @@ appendHtmlForProjectStatistics(struct dynamicText** contentForMain, int* noUrlMa
     "                        <li><span class=\"bold\">161x unit tests</span>\n" \
     "                            <ul>\n" \
     "                                <li>written in plain C</li>\n" \
-    "                                <li>duration for a complete test run: 6.1 seconds\n" \
+    "                                <li>duration for a complete test run: 6.1 seconds</li>\n" \
+    "                                <li>Public GitHub repository: <a rel=\"noopener noreferrer nofollow\" target=\"_blank\" href=\"https://github.com/Maatuuli/CompiledWebDevelopment/tree/main/core/unit_tests\">https://github.com/Maatuuli/CompiledWebDevelopment/tree/main/core/unit_tests</a>\n" \
     "                                    <br />\n" \
     "                                    <br />\n" \
     "                                    <a target=\"blank\" href=\"core___unit-tests___2021-09-10.png\"><img src=\"core___unit-tests___2021-09-10.png\" width=\"700\" alt=\"Linux console screen of executed unit tests for the core files.\" /></a>\n" \
