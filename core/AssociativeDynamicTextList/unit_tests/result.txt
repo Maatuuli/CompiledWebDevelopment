@@ -1,0 +1,24 @@
+time { ../../../tools/dumpmutate/dumbmutate-master/dumbmutate --mutate=../AssociativeDynamicTextList.class.c --build="sh execute_compiling.sh" --test=./tests_for_AssociativeDynamicTextList.out; }
+Mutation-testing 100% done, finished.
+
+-----------------------------
+Sun Apr 23 17:57:43 2023
+Time passed: 4 minutes
+Lines processed: 444 of 444
+Mutations: 445
+Build failed: 303
+Test failed: 142
+Test timedout: 0
+Build timedout: 0
+Mutations survived: 0
+Mutation killratio: 100%
+-----------------------------
+
+The following mutations survived: 
+
+Results have been written to ./MutationResult_.._AssociativeDynamicTextList.class.c.html
+
+
+real	3m18,509s
+user	3m2,292s
+sys     0m16,913s

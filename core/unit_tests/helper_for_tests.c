@@ -11,3 +11,22 @@ abortTestWithErrorMessage(char* titleFromTest, const char* functionName, char* f
     customExit(EXIT_FAILURE);
 }
 
+
+void
+checkIfUnusedMemoryIsSetUpAsZero(char* titleFromTest, struct DynamicText** text, char* filename, int lineNumber)
+{
+    int errorNumber = 0;
+    
+    int valueForStart = (*text)->getLength(text, &errorNumber, filename, lineNumber);
+    
+    for (int i = valueForStart; i <= ((*text)->amountOfBytes - 1); i++)
+    {
+        if ('\0' == (*text)->bytes[i])
+        {
+            continue;
+        }
+        
+        abortTestWithErrorMessage(titleFromTest, __func__, filename, lineNumber);
+    }
+}
+

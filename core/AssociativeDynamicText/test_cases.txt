@@ -1,0 +1,22 @@
+TEST SUITE:
+AssociativeDynamicText.class.c
+
+Positive unit tests:
+[SUCCESS] #01 Minimal initialization with key and freeing of empty key value stores.
+[SUCCESS] #02 One-byte key and empty value.
+[SUCCESS] #03 Multi-byte key and empty value.
+[SUCCESS] #04 Regular key and empty value.
+[SUCCESS] #05 Large key and empty value.
+[SUCCESS] #06 Set empty value.
+[SUCCESS] #07 Set one-letter value.
+[SUCCESS] #08 Set multi-byte value.
+[SUCCESS] #09 Set large value.
+
+Negative unit tests:
+[SUCCESS] #01 Parameter for key is NULL!
+[SUCCESS] #02 Parameter for key is empty!
+[SUCCESS] #03 Allocate with a mocked allocation function!
+[SUCCESS] #04 Set with NULL parameter!
+[SUCCESS] #05 Set with NULL pointer for parameter!
+[SUCCESS] #06 Free NULL parameter!
+[SUCCESS] #07 Free NULL pointer for parameter!

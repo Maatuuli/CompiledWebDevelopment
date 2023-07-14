@@ -1,7 +1,14 @@
 
+int globaleTestingFlagForNullReallocation = 0;
+
 void*
 customRealloc(void *ptr, size_t newSize, size_t oldSize)
 {
+    if (1 == globaleTestingFlagForNullReallocation)
+    {    
+        return NULL;
+    }
+
     globaleAmountOfReallocations++;
 
     globaleAmountOfAllocatedMemoryInBytes -= oldSize;
@@ -12,6 +19,5 @@ customRealloc(void *ptr, size_t newSize, size_t oldSize)
         globalePeakOfAllocatedMemoryInBytes = globaleAmountOfAllocatedMemoryInBytes;
     }
     
-    return NULL;
+    return realloc(ptr, newSize);
 }
-

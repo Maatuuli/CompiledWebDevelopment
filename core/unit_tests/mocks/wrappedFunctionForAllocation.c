@@ -2,21 +2,21 @@
 int globaleTestingFlagForNullAllocation = 0;
 
 void*
-customCalloc(size_t n, size_t size)
+customMalloc(int32_t size)
 {
+    if (1 == globaleTestingFlagForNullAllocation)
+    {    
+        return NULL;
+    }
+
     globaleAmountOfAllocations++;
-    globaleAmountOfAllocatedMemoryInBytes += n * size;
+    globaleAmountOfAllocatedMemoryInBytes += size;
 
     if (globaleAmountOfAllocatedMemoryInBytes > globalePeakOfAllocatedMemoryInBytes)
     {
         globalePeakOfAllocatedMemoryInBytes = globaleAmountOfAllocatedMemoryInBytes;
     }
-
-    if (1 == globaleTestingFlagForNullAllocation)
-    {    
-        return NULL;
-    }
     
-    return calloc(n, size);
+    return malloc(size);
 }
 
