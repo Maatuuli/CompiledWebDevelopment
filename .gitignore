@@ -1,3 +1,4 @@
 *.out
 *.gcda
 *.gcno
+core/unit_tests/html/
