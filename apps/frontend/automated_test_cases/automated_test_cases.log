@@ -1,0 +1,9 @@
+
+# Test Case A05: "Check for standard unicode escaping in the browser."
+
+Steps for reproduce: 
+* go to url: https://maatuu.li/CompiledWebDevelopment/
+* scroll to footer section
+* get the HTML source code from the current page
+* check for the wording "Krüger" with unicode umlaut in the fetched HTML source code
+

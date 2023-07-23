@@ -1,6 +1,6 @@
 /*
  * Compile as a .jar package with this command:
- * ?> javac -d ./test_case_a05/classes -classpath "./selenium-server-standalone-3.14.0.jar" ./Helper.java ./test_case_a05/FrontendTest.java; cd ./test_case_a05/classes; jar cfm ../../test_case_a05.jar ../../manifest.mf ./*.class; cd -
+ * ?> javac -d ./test_case_a05/classes -classpath "./selenium-server-4.10.0.jar" ./Helper.java ./test_case_a05/FrontendTest.java; cd ./test_case_a05/classes; jar cfm ../../test_case_a05.jar ../../manifest.mf ./*.class; cd -
  * 
  * Execute with:
  * ?> java -jar test_case_a05.jar
@@ -17,6 +17,9 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.logging.LogEntries;
+import org.openqa.selenium.logging.LogEntry;
+import org.openqa.selenium.logging.LogType;
 
 import java.util.Date;
 import java.io.IOException;
@@ -60,6 +63,37 @@ public class FrontendTest
             Helper.appendTextToLogFile("[ERROR] FrontendTest crashed!");
             System.exit(0);
         }
+        
+        /* Check if actual URL is equal to expected URL! */
+        String currentUrl = driver.getCurrentUrl();
+        if (!currentUrl.equals(url))
+        {
+            Helper.appendTextToLogFile("[ERROR] FrontendTest #5 stopped: Actual URL \"" + currentUrl + "\" is not like expected URL \"" + url + "\"!");
+
+            if (null != driver)
+            {
+                driver.close();
+                driver.quit();
+            }
+
+            System.exit(0);
+        }
+
+        /* Check HTTP status code! */
+        LogEntries logEntries = driver.manage().logs().get(LogType.BROWSER);
+        int statusCode = Helper.getHttpStatusCodeByBrowserLogs(logEntries, url, currentUrl);
+        if (200 != statusCode)
+        {
+            Helper.appendTextToLogFile("[ERROR] FrontendTest #5 stopped: Wrong HTTP status code " + statusCode + " was found!");
+
+            if (null != driver)
+            {
+                driver.close();
+                driver.quit();
+            }
+
+            System.exit(0);
+        }
 
         /* ### */
         Helper.appendTextToLogFile("* scroll to footer section");
@@ -75,6 +109,13 @@ public class FrontendTest
         if (false == currentHtmlSourceCode.contains(unicodeText))
         {
             Helper.appendTextToLogFile("[ERROR] Test Case A05 stopped: " + unicodeText + " was not found!");
+
+            if (null != driver)
+            {
+                driver.close();
+                driver.quit();
+            }
+
             System.exit(0);
         }
         
