@@ -1,6 +1,6 @@
 /*
  * Compile as a .jar package with this command:
- * ?> javac -d ./test_case_a04/classes -classpath "./selenium-server-4.10.0.jar" ./Helper.java ./test_case_a04/FrontendTest.java; cd ./test_case_a04/classes; jar cfm ../../test_case_a04.jar ../../manifest.mf ./*.class; cd -
+ * ?> javac -d ./test_case_a04/classes --class-path "./selenium-server-4.10.0.jar" ./Helper.java ./test_case_a04/FrontendTest.java; cd ./test_case_a04/classes; jar --create --file=../../test_case_a04.jar  --manifest=../../manifest.mf ./*.class; cd -
  * 
  * Execute with:
  * ?> java -jar test_case_a04.jar
