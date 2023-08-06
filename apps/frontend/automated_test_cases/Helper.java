@@ -5,10 +5,13 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
+import org.openqa.selenium.PageLoadStrategy;
+import org.openqa.selenium.JavascriptExecutor;
 
-import java.util.Date;
 import java.io.IOException;
 import java.nio.file.*;
 import java.text.DateFormat;
@@ -16,17 +19,27 @@ import java.text.SimpleDateFormat;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.lang.Number;
+import java.util.Date;
+import java.time.Duration;
 
 public class Helper
 {
     public static WebDriver
     getChromeWebDriver()
     {
+        System.setProperty("webdriver.chrome.driver", "./chromedriver");
+        System.setProperty("webdriver.chrome.logfile", "./chromedriver.log");
+        System.setProperty("webdriver.chrome.verboseLogging", "true");
+
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--incognito");
-        options.addArguments("--headless=new");
+        options.addArguments("--disable-infobars");
+        options.addArguments("--disable-notifications");
 
-        System.setProperty("webdriver.chrome.driver", "./chromedriver");
+        options.setAcceptInsecureCerts(true);
+        options.setPageLoadStrategy(PageLoadStrategy.NONE); // PageLoadStrategy.NONE or PageLoadStrategy.EAGER
+        options.setHeadless(false);
+        // options.setUnhandledPromptBehaviour​(UnexpectedAlertBehaviour.ACCEPT);
 
         WebDriver driver = new ChromeDriver(options);
 
@@ -34,10 +47,34 @@ public class Helper
         int browser_width = 1200;
         int browser_height = 600;
         driver.manage().window().setSize(new Dimension(browser_width, browser_height));
+        
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+        driver.manage().timeouts().setScriptTimeout(Duration.ofSeconds(30));
 
         return driver;
     }
 
+    public static void
+    waitUntilReadyStateIsInteractive(WebDriver driver)
+    {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        JavascriptExecutor executor = ((JavascriptExecutor) driver);
+        wait.until(x -> {
+            String readyState = (String) executor.executeScript("return document.readyState");
+            return !readyState.equals("loading");
+        });
+    }
+
+    public static void
+    waitUntilReadyStateIsComplete(WebDriver driver)
+    {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        JavascriptExecutor executor = ((JavascriptExecutor) driver);
+        wait.until(x -> {
+            String readyState = (String) executor.executeScript("return document.readyState");
+            return readyState.equals("complete");
+        });
+    }
 
     public static void
     sleepInMilliSeconds(int milliSeconds)
@@ -46,14 +83,13 @@ public class Helper
         {
             Thread.sleep(milliSeconds);
         }
-        catch (InterruptedException interrupted_exception)
+        catch (InterruptedException exception)
         {
             System.out.println(" ");
-            System.out.println("ERROR: Thread.sleep(...) throws an exception: " + interrupted_exception.getMessage());
+            System.out.println("ERROR: Thread.sleep(...) throws an exception: " + exception.getMessage());
             System.out.println(" ");
         }
     }
-
 
     public static void
     appendTextToLogFile(String text)
@@ -91,6 +127,21 @@ public class Helper
         }
 
         return element;
+    }
+
+
+    public static boolean
+    existWebElementByXpath(WebDriver driver, String xpathText)
+    {
+        try
+        {
+            driver.findElement(By.xpath(xpathText));
+            return true;
+        }
+        catch (Exception exception)
+        {
+            return false;
+        }
     }
 
 
@@ -134,9 +185,9 @@ public class Helper
 
             if (statusCode != 200)
             {
-                System.out.println("[INFO] HTTP status code " + statusCode);
-                System.out.println("[INFO] from actual URL: \"" + actualUrl + "\"");
-                System.out.println("[INFO] with expected URL: \"" + expectedUrl + "\"");
+                Helper.appendTextToLogFile("[INFO] HTTP status code " + statusCode);
+                Helper.appendTextToLogFile("[INFO] from actual URL: \"" + actualUrl + "\"");
+                Helper.appendTextToLogFile("[INFO] with expected URL: \"" + expectedUrl + "\"");
             }
         }
 
